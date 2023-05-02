@@ -1,0 +1,33 @@
+.form {
+    width: 50%;
+    margin: auto;
+    margin-top: 9vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input, select {
+    margin-left: 7px;
+    border-radius: 5px;
+    background-color: rgb(160, 160, 160);
+} 
+
+textarea {
+    background-color: rgb(160, 160, 160);
+}
+
+.btnSend {
+    background-color: black;
+    color: white;
+    border-radius: 20px 20px;
+    border: 2px solid white;
+    font-size: 1.5vw;
+    width: 13vw;
+    margin: auto;
+}
+
+.btnSend:hover {
+    border: 2px solid rgb(1, 195, 1);
+    color: rgb(1, 195, 1);
+}
