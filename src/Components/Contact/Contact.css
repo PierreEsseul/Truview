@@ -1,4 +1,21 @@
+.contact {
+    margin-top: 8em;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 1rem;
+}
+
+.network {
+    display: flex;
+    justify-content: space-around;
+}
+
+.logo {
+    width: 3vw;
+}
+
 .profil {
-    width: 40vw;
-    border-radius: 50%;
+    width: 24vw;
+    border-radius: 3px 3px;
 }
