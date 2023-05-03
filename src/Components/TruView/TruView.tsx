@@ -7,17 +7,22 @@ function TruView() {
     const [enteredNetwork, setEnteredNetwork] = useState('');
     const [enteredAbout, setEnteredAbout] = useState('');
     const [result, setResult] = useState('');
+    const [loader, setLoader] = useState(false);
 
     const languageChangeHandler = (event : any) => {
         setEnteredLanguage(event.target.value);
     }
 
     const networkChangeHandler = (event : any) => {
-            setEnteredNetwork(event.target.value);
+        setEnteredNetwork(event.target.value);
     }
 
     const aboutChangeHandler = (event : any) => {
         setEnteredAbout(event.target.value);        
+    }
+
+    const download = () => {
+        setLoader(true);
     }
 
     const submitHandler = async (event: any) => {
@@ -29,11 +34,13 @@ function TruView() {
             about : enteredAbout
         }
 
-        console.log(data);
-
         const response : any = await SendBack(data); 
 
         setResult(response.data);
+
+        setEnteredLanguage('');
+        setEnteredNetwork('');
+        setEnteredAbout('');
     }
 
     return(
@@ -71,11 +78,28 @@ function TruView() {
                     </textarea>
                 
 
-                    <button className="btnSend" type="submit">Send</button>
+                    <button className="btnSend" type="submit" onClick={download}>Send</button>
                 </div>            
             </form>
 
-            <p>{result}</p>
+            <div className='result'>
+                {loader ? 
+                <>
+                    {!result ?
+                    <div className='parent-loader'> 
+                        <div className='loader'>
+                            <p>loading...</p>
+                            <div className='loader__icon'></div>
+                        </div> 
+                    </div>
+                    :
+                    <p>{result}</p>
+                    }
+                </>
+                :
+                <div></div>
+                }
+            </div>
         </>
     )
 }
