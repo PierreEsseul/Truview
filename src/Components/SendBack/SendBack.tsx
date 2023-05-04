@@ -1,6 +1,6 @@
 async function SendBack(topic : any) {
     try {
-        const response : any = await fetch(`http://localhost:5002/api/post`, 
+        const response : any = await fetch(`${process.env.REACT_APP_URL_BACK}/api/post`, 
             {
             method: 'POST',
             headers: {
